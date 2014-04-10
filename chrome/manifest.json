@@ -1,9 +1,9 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "BitBucket Selfies",
   "description": "Selfies! For BitBucket! Hooray!",
-  "version": "1.4",
+  "version": "1.5",
 
   "icons": {
     "16": "icon16.png",
