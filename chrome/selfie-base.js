@@ -3,7 +3,9 @@ function GitHubSelfies(config) {
   var stream;
 
   config.buttonSelector   = '#totallyAwesomeSelfieButton';
-  config.toggleSelector = '#selfieToggle';
+  config.textSelector     = '#totallyAwesomeSelfieText';
+  config.iconSelector     = '#totallyAwesomeSelfieIcon';
+  config.toggleSelector   = '#selfieToggle';
   config.canvasSelector   = '#selfieCanvas';
   config.videoSelector    = '#selfieVideo';
   config.setupComplete    = false;
@@ -13,7 +15,7 @@ function GitHubSelfies(config) {
   config.stream           = null;
 
   config.toggleHTML = (
-    '<button id="selfieToggle" type="button" class="aui-button"><span class="aui-icon aui-icon-small aui-iconfont-star"></span> GIF?</button>'
+    '<button id="selfieToggle" type="button" class="aui-button"><span id="totallyAwesomeSelfieIcon" class="aui-icon aui-icon-small aui-iconfont-unstar"></span> <span id="totallyAwesomeSelfieText">GIF?</span></button>'
   );
 
   config.videoHTML = (
@@ -90,7 +92,7 @@ function GitHubSelfies(config) {
   }
 
   function snapSelfie (callback) {
-    dynamic = $('#selfieToggle').hasClass('selected');
+    dynamic = $(config.toggleSelector).hasClass('selected');
     resizeCanvasElement(dynamic);
 
     var video  = document.querySelector(config.videoSelector)
@@ -231,19 +233,13 @@ function GitHubSelfies(config) {
 
   function toggleDynamicSelfie() {
     if ($(config.toggleSelector).hasClass('selected')) {
-      $(config.toggleSelector).removeClass('selected');
-      $(config.toggleSelector).addClass('dark-grey');
-      $(config.toggleSelector).removeClass('primary');
-      $(config.toggleSelector).text('GIF?');
-      $('#totallyAwesomeSelfieIcon').removeClass('octicon-device-camera-video');
-      $('#totallyAwesomeSelfieIcon').addClass('octicon-device-camera');
+      $(config.textSelector).text('GIF?');
     } else {
-      $(config.toggleSelector).addClass('selected');
-      $(config.toggleSelector).removeClass('dark-grey');
-      $(config.toggleSelector).addClass('primary');
-      $(config.toggleSelector).text('GIF!');
-      $('#totallyAwesomeSelfieIcon').removeClass('octicon-device-camera');
-      $('#totallyAwesomeSelfieIcon').addClass('octicon-device-camera-video');
+      $(config.textSelector).text('GIF!');
     }
+
+    $(config.iconSelector).toggleClass('aui-iconfont-star');
+    $(config.iconSelector).toggleClass('aui-iconfont-unstar');
+    $(config.toggleSelector).toggleClass('selected');
   }
 }
