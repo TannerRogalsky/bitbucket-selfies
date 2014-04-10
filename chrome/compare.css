@@ -1,3 +1,7 @@
+.selfieButtonContainer{
+  height: 150px;
+}
+
 video {
   display: inline-block;
   width: 120px;
