@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "GitHub Selfies",
-  "description": "Selfies! For GitHub! Hooray!",
+  "name": "BitBucket Selfies",
+  "description": "Selfies! For BitBucket! Hooray!",
   "version": "1.4",
 
   "icons": {
@@ -12,32 +12,32 @@
   },
 
   "permissions": [
-    "https://github.com/*",
-    "http://github.com/*"
+    "https://bitbucket.org/*",
+    "http://bitbucket.org/*"
   ],
 
   "content_scripts": [
     {
       "js": ["jquery.min.js", "selfie-base.js", "compare.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://github.com/*/compare*"],
+      "matches": ["*://bitbucket.org/*/pull-request/*"],
       "run_at": "document_end",
       "css": ["compare.css"]
     },
     {
       "js": ["jquery.min.js", "selfie-base.js", "pull.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://github.com/*/pull/*"],
+      "matches": ["*://bitbucket.org/*/pull/*"],
       "run_at": "document_end",
       "css": ["pull.css"]
     },
     {
       "js": ["jquery.min.js", "selfie-base.js", "new-issue.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://github.com/*/issues/new"],
+      "matches": ["*://bitbucket.org/*/issues/new"],
       "run_at": "document_start"
     },
     {
       "js": ["jquery.min.js", "selfie-base.js", "issues.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://github.com/*/issues/*"],
-      "exclude_matches": ["*://github.com/*/issues/new"],
+      "matches": ["*://bitbucket.org/*/issues/*"],
+      "exclude_matches": ["*://bitbucket.org/*/issues/new"],
       "run_at": "document_start"
     }
   ],
