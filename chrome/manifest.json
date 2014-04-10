@@ -18,34 +18,21 @@
 
   "content_scripts": [
     {
-      "js": ["jquery.min.js", "selfie-base.js", "compare.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://bitbucket.org/*/pull-request/*"],
+      "js": ["jquery.min.js", "selfie-base.js", "new-pr.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
+      "matches": ["*://bitbucket.org/*/pull-request/new*"],
       "run_at": "document_end",
-      "css": ["compare.css"]
+      "css": ["new-pr.css"]
     },
     {
-      "js": ["jquery.min.js", "selfie-base.js", "pull.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://bitbucket.org/*/pull/*"],
+      "js": ["jquery.min.js", "selfie-base.js", "diff.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
+      "matches": ["*://bitbucket.org/*/pull-request/*/diff"],
       "run_at": "document_end",
-      "css": ["pull.css"]
-    },
-    {
-      "js": ["jquery.min.js", "selfie-base.js", "new-issue.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://bitbucket.org/*/issues/new"],
-      "run_at": "document_start"
-    },
-    {
-      "js": ["jquery.min.js", "selfie-base.js", "issues.js", "b64.js", "GIFEncoder.js", "LZWEncoder.js", "NeuQuant.js"],
-      "matches": ["*://bitbucket.org/*/issues/*"],
-      "exclude_matches": ["*://bitbucket.org/*/issues/new"],
-      "run_at": "document_start"
+      "css": ["diff.css"]
     }
   ],
 
   "web_accessible_resources": [
-    "jquery-1.10.1.min.map",
-    "new-issue.css",
-    "issues.css"
+    "jquery-1.10.1.min.map"
   ]
 
 }
