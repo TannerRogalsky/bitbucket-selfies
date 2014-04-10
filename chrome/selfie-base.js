@@ -13,7 +13,7 @@ function GitHubSelfies(config) {
   config.stream           = null;
 
   config.toggleHTML = (
-    '<button id="selfieToggle" type="button" class="button dark-grey">GIF?</button>'
+    '<button id="selfieToggle" type="button" class="aui-button"><span class="aui-icon aui-icon-small aui-iconfont-star"></span> GIF?</button>'
   );
 
   config.videoHTML = (
