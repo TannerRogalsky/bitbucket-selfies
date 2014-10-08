@@ -210,7 +210,7 @@ function GitHubSelfies(config) {
       stream = _stream;
       $(config.videoSelector).attr('src', window.URL.createObjectURL(stream));
       if (typeof config.postVideoStart === 'function') { config.postVideoStart(); }
-    });
+    }, notifyFail);
   }
 
   function stopVideo () {
